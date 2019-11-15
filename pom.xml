@@ -1,0 +1,117 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>edu.phema</groupId>
+  <artifactId>ohdsi-json-schema-generator</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>ohdsi-json-schema-generator</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <ohdsi.webapi.version>2.6.0</ohdsi.webapi.version>
+    <ohdsi.circe.version>1.7.0</ohdsi.circe.version>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.ohdsi</groupId>
+      <artifactId>WebAPI</artifactId>
+      <version>${ohdsi.webapi.version}</version>
+      <classifier>classes</classifier>
+      <exclusions>
+        <exclusion>
+          <groupId>org.glassfish.jersey.core</groupId>
+          <artifactId>jersey-server</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.glassfish.jersey.containers</groupId>
+          <artifactId>jersey-container-servlet-core</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.glassfish.jersey.media</groupId>
+          <artifactId>jersey-media-json-jackson</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.glassfish.jersey.core</groupId>
+          <artifactId>jersey-common</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.glassfish.jersey.core</groupId>
+          <artifactId>jersey-client</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-web</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.springframework.batch</groupId>
+          <artifactId>spring-batch-core</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-jdbc</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-jersey</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.springframework.batch</groupId>
+          <artifactId>spring-batch-admin-manager</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.springframework.security</groupId>
+          <artifactId>spring-security-crypto</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.springframework.ldap</groupId>
+          <artifactId>spring-ldap-core</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>com.odysseusinc.arachne</groupId>
+          <artifactId>execution-engine-commons</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>com.odysseusinc</groupId>
+          <artifactId>logging</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>com.fasterxml.jackson.core</groupId>
+          <artifactId>jackson-annotations</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-core</artifactId>
+      <version>2.10.1</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.10.1</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.module/jackson-module-jsonSchema -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.module</groupId>
+      <artifactId>jackson-module-jsonSchema</artifactId>
+      <version>2.10.1</version>
+    </dependency>
+  </dependencies>
+</project>

@@ -1,0 +1,335 @@
+{
+  "type": "object",
+  "id": "urn:jsonschema:org:ohdsi:circe:cohortdefinition:CohortExpression",
+  "properties": {
+    "Title": {
+      "type": "string"
+    },
+    "PrimaryCriteria": {
+      "type": "object",
+      "id": "urn:jsonschema:org:ohdsi:circe:cohortdefinition:PrimaryCriteria",
+      "properties": {
+        "CriteriaList": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "id": "urn:jsonschema:org:ohdsi:circe:cohortdefinition:Criteria",
+            "properties": {
+              "CorrelatedCriteria": {
+                "type": "object",
+                "id": "urn:jsonschema:org:ohdsi:circe:cohortdefinition:CriteriaGroup",
+                "properties": {
+                  "Type": {
+                    "type": "string"
+                  },
+                  "Count": {
+                    "type": "integer"
+                  },
+                  "CriteriaList": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "id": "urn:jsonschema:org:ohdsi:circe:cohortdefinition:CorelatedCriteria",
+                      "properties": {
+                        "Criteria": {
+                          "type": "object",
+                          "$ref": "urn:jsonschema:org:ohdsi:circe:cohortdefinition:Criteria"
+                        },
+                        "StartWindow": {
+                          "type": "object",
+                          "id": "urn:jsonschema:org:ohdsi:circe:cohortdefinition:Window",
+                          "properties": {
+                            "Start": {
+                              "type": "object",
+                              "id": "urn:jsonschema:org:ohdsi:circe:cohortdefinition:Window:Endpoint",
+                              "properties": {
+                                "Days": {
+                                  "type": "integer"
+                                },
+                                "Coeff": {
+                                  "type": "integer"
+                                }
+                              }
+                            },
+                            "End": {
+                              "type": "object",
+                              "$ref": "urn:jsonschema:org:ohdsi:circe:cohortdefinition:Window:Endpoint"
+                            },
+                            "UseIndexEnd": {
+                              "type": "boolean"
+                            },
+                            "UseEventEnd": {
+                              "type": "boolean"
+                            }
+                          }
+                        },
+                        "EndWindow": {
+                          "type": "object",
+                          "$ref": "urn:jsonschema:org:ohdsi:circe:cohortdefinition:Window"
+                        },
+                        "Occurrence": {
+                          "type": "object",
+                          "id": "urn:jsonschema:org:ohdsi:circe:cohortdefinition:Occurrence",
+                          "properties": {
+                            "Type": {
+                              "type": "integer"
+                            },
+                            "Count": {
+                              "type": "integer"
+                            },
+                            "IsDistinct": {
+                              "type": "boolean"
+                            }
+                          }
+                        },
+                        "RestrictVisit": {
+                          "type": "boolean"
+                        }
+                      }
+                    }
+                  },
+                  "DemographicCriteriaList": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "id": "urn:jsonschema:org:ohdsi:circe:cohortdefinition:DemographicCriteria",
+                      "properties": {
+                        "Age": {
+                          "type": "object",
+                          "id": "urn:jsonschema:org:ohdsi:circe:cohortdefinition:NumericRange",
+                          "properties": {
+                            "Value": {
+                              "type": "number"
+                            },
+                            "Op": {
+                              "type": "string"
+                            },
+                            "Extent": {
+                              "type": "number"
+                            }
+                          }
+                        },
+                        "Gender": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "id": "urn:jsonschema:org:ohdsi:circe:vocabulary:Concept",
+                            "properties": {
+                              "CONCEPT_ID": {
+                                "type": "integer"
+                              },
+                              "CONCEPT_NAME": {
+                                "type": "string"
+                              },
+                              "STANDARD_CONCEPT": {
+                                "type": "string"
+                              },
+                              "STANDARD_CONCEPT_CAPTION": {
+                                "type": "string"
+                              },
+                              "INVALID_REASON": {
+                                "type": "string"
+                              },
+                              "INVALID_REASON_CAPTION": {
+                                "type": "string"
+                              },
+                              "CONCEPT_CODE": {
+                                "type": "string"
+                              },
+                              "DOMAIN_ID": {
+                                "type": "string"
+                              },
+                              "VOCABULARY_ID": {
+                                "type": "string"
+                              },
+                              "CONCEPT_CLASS_ID": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        },
+                        "Race": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "$ref": "urn:jsonschema:org:ohdsi:circe:vocabulary:Concept"
+                          }
+                        },
+                        "Ethnicity": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "$ref": "urn:jsonschema:org:ohdsi:circe:vocabulary:Concept"
+                          }
+                        },
+                        "OccurrenceStartDate": {
+                          "type": "object",
+                          "id": "urn:jsonschema:org:ohdsi:circe:cohortdefinition:DateRange",
+                          "properties": {
+                            "Value": {
+                              "type": "string"
+                            },
+                            "Op": {
+                              "type": "string"
+                            },
+                            "Extent": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "OccurrenceEndDate": {
+                          "type": "object",
+                          "$ref": "urn:jsonschema:org:ohdsi:circe:cohortdefinition:DateRange"
+                        }
+                      }
+                    }
+                  },
+                  "Groups": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "$ref": "urn:jsonschema:org:ohdsi:circe:cohortdefinition:CriteriaGroup"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "ObservationWindow": {
+          "type": "object",
+          "id": "urn:jsonschema:org:ohdsi:circe:cohortdefinition:ObservationFilter",
+          "properties": {
+            "PriorDays": {
+              "type": "integer"
+            },
+            "PostDays": {
+              "type": "integer"
+            }
+          }
+        },
+        "PrimaryCriteriaLimit": {
+          "type": "object",
+          "id": "urn:jsonschema:org:ohdsi:circe:cohortdefinition:ResultLimit",
+          "properties": {
+            "Type": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "AdditionalCriteria": {
+      "type": "object",
+      "$ref": "urn:jsonschema:org:ohdsi:circe:cohortdefinition:CriteriaGroup"
+    },
+    "ConceptSets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "id": "urn:jsonschema:org:ohdsi:circe:cohortdefinition:ConceptSet",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "expression": {
+            "type": "object",
+            "id": "urn:jsonschema:org:ohdsi:circe:vocabulary:ConceptSetExpression",
+            "properties": {
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "id": "urn:jsonschema:org:ohdsi:circe:vocabulary:ConceptSetExpression:ConceptSetItem",
+                  "properties": {
+                    "concept": {
+                      "type": "object",
+                      "$ref": "urn:jsonschema:org:ohdsi:circe:vocabulary:Concept"
+                    },
+                    "isExcluded": {
+                      "type": "boolean"
+                    },
+                    "includeDescendants": {
+                      "type": "boolean"
+                    },
+                    "includeMapped": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "QualifiedLimit": {
+      "type": "object",
+      "$ref": "urn:jsonschema:org:ohdsi:circe:cohortdefinition:ResultLimit"
+    },
+    "ExpressionLimit": {
+      "type": "object",
+      "$ref": "urn:jsonschema:org:ohdsi:circe:cohortdefinition:ResultLimit"
+    },
+    "InclusionRules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "id": "urn:jsonschema:org:ohdsi:circe:cohortdefinition:InclusionRule",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "expression": {
+            "type": "object",
+            "$ref": "urn:jsonschema:org:ohdsi:circe:cohortdefinition:CriteriaGroup"
+          }
+        }
+      }
+    },
+    "EndStrategy": {
+      "type": "object",
+      "id": "urn:jsonschema:org:ohdsi:circe:cohortdefinition:EndStrategy"
+    },
+    "CensoringCriteria": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "$ref": "urn:jsonschema:org:ohdsi:circe:cohortdefinition:Criteria"
+      }
+    },
+    "CollapseSettings": {
+      "type": "object",
+      "id": "urn:jsonschema:org:ohdsi:circe:cohortdefinition:CollapseSettings",
+      "properties": {
+        "CollapseType": {
+          "type": "string",
+          "enum": [
+            "ERA"
+          ]
+        },
+        "EraPad": {
+          "type": "integer"
+        }
+      }
+    },
+    "CensorWindow": {
+      "type": "object",
+      "id": "urn:jsonschema:org:ohdsi:circe:cohortdefinition:Period",
+      "properties": {
+        "StartDate": {
+          "type": "string"
+        },
+        "EndDate": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

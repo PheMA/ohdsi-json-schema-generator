@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.cosium.spring.data:spring-data-jpa-entity-graph:1.11.03">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/cosium/spring/data/spring-data-jpa-entity-graph/1.11.03/spring-data-jpa-entity-graph-1.11.03.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/cosium/spring/data/spring-data-jpa-entity-graph/1.11.03/spring-data-jpa-entity-graph-1.11.03-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/cosium/spring/data/spring-data-jpa-entity-graph/1.11.03/spring-data-jpa-entity-graph-1.11.03-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
